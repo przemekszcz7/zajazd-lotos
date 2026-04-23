@@ -21,7 +21,7 @@ import {
   CircleHelp,
   ArrowDown
 } from 'lucide-react';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 
 const REVIEWS = [
   { id: 1, name: "Katarzyna", text: "Świetny klimat! Cadillac w ścianie robi wrażenie, a burger był obłędny. Na pewno wrócę!", rating: 5 },
@@ -52,15 +52,16 @@ const MENU_ITEMS = [
   ]}
 ];
 
+// Uwaga: Linki scontent z Facebooka są tymczasowe i mogą wygasnąć.
+// Zaleca się wgranie własnych zdjęć do stałego hostingu lub bezpośrednio do projektu.
 const IMAGES = [
-  "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/555959491_1802384010473680_3277773774791571118_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=XMdC3JX4siIQ7kNvwFFRgYP&oh=00_Af0_8Wauil2mV75uCFnXnykSVAd25F_0jt7NnycBWK3qRA&oe=69EF9A18",
-  "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/556892494_1802360900475991_647774063571387651_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=9XM4Bxu-ZHEQ7kNvwFwIrOb&oh=00_Af34hfLCxoLe0ytbAOZToBEYCOCmJZvZBgXvn0aU0CEqew&oe=69EFB1B5",
-  "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/484075197_1647151939330222_4604593790086263795_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=GGXpI6EvfLAQ7kNvwHfe5wu&oh=00_Af06AgSs-c_CYIHYhv7KRWRoWzfJL1cjPO0j0ucCJ4Au9Q&oe=69EFA199",
-  "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/483751292_1647151985996884_2391905775776737894_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=xkKpPOXxjKEQ7kNvwGawthp&oh=00_Af2-bt4rEvSqYXBPrTyiyE8OSTdK056_PDF3RH1svptfkw&oe=69EF943A",
-  "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/476453867_1624451761600240_316169056175233821_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=b895b5&_nc_ohc=Ecthctu0v1gQ7kNvwGO3qna&oh=00_Af0KBOhbXtCtln8m1FWQa8LZ7nkI6H_Qt55K848SZQFKJw&oe=69EF8EC5",
-  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGDgMld2tpT_ZLnF0HKuGlKCVCNgPEm9Kw4wrY7rrWvsJ9fWZr3A5NJSPhrjRHnufrVnFELpCarwIKtTKitLArNBZ_LnmtQLIt-gg7_WuUvgXnKbNmYyH0hcC5bSTgchsFvNXq9=s680",
-  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGKyTdlsm8ji2CC7MuX6tdxh4AzCXqEMeTrxObTEiaB8CVAhaVBh1A95HonwlUCKIAWyG8MUnreBHuv2Wl3JySwEgUq4CO6jGoz6_vVaG4GfFuTDSBp3p4LS0fWMRQZTPPnsx8cAQ=s680",
-  "https://scontent-waw2-1.xx.fbcdn.net/v/t1.6435-9/186472622_1777677439077691_8050268554511988052_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=JLMXRBnw3XkQ7kNvwGyip78&oh=00_Af0gDiQj8P_DxR8ef5l05vWvv_2I90Q9syt4MI92vkM_og&oe=6A113A51"
+  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG5Ri_ENQR9gBD6rSjelXVzE2RUWlEua3SzKKYtOEArJA-GWNvgoLRCX7NRVseeG5mD9-pQqIZyj8a3D55lNohfnSMnwwch9jG0DkXCERPg-Z4DOVCIg_-rB__2C5PtZ7slK-29VA=s680-w680-h510",
+  "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/556892494_1802360900475991_647774063571387651_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=9XM4Bxu-ZHEQ7kNvwFwIrOb&_nc_oc=Adqd8Jd4xOo3mRsTmuX74_280WFABzIc7Emql4QUu-8ubCAkJv5hrMQXFY-fUvljbbc&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=sRBcM-v8sjcD0Vg-E4pIgg&oh=00_Af1HSuZETIDn2xStrbnmr5M0Db7n6r4Of3o-K-ZUslR5gw&oe=69EFB1B5",
+  "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/483916548_1647152282663521_2453557793454855479_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=H2UGvtdtbMYQ7kNvwE6q-AP&_nc_oc=Adolk-qXtv2zzqntyDwurOzcdSqF_BA_ZvO0FOcqd7W8COLjy615LTPkL3iIV5aGLX0&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=lp7LLf4Vzq3WQ-6qUDyxAQ&oh=00_Af0EV2xkpZPdO9eekrUSYpESaIbTrTcq_PX85BSCQK0qUw&oe=69EFBDFA",
+  "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/483751292_1647151985996884_2391905775776737894_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=xkKpPOXxjKEQ7kNvwGawthp&_nc_oc=AdoTN40uLvSMz3frJNi-9dpkUlL-3QdYEn2fuRuOcCDauneY6e3lURc6EmXDR6VU5DM&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=SQF5DinD7uaTboHVhMD_Kg&oh=00_Af35dc0u_tAQw38n_H7fDbEnuhpLHQrIJIP-swkrN1lFlQ&oe=69EF943A",
+  "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/476453867_1624451761600240_316169056175233821_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=b895b5&_nc_ohc=Ecthctu0v1gQ7kNvwGO3qna&_nc_oc=Adpi5wxBkEJ9jK7hBj2FQvhkLYBEbBvS-1_KYGJ6bzdKjz7PTiUStkafaX1Uq_WLeaI&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=Hgo5Vr0JFoO7F2aUA2WECw&oh=00_Af01mHnIb-gUK5rgp2az5IxreyPhPtYTiFDvXG0gO4UaVg&oe=69EF8EC5",
+  "https://scontent-waw2-2.xx.fbcdn.net/v/t1.6435-9/186515277_1777677545744347_6852381302438875751_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=bQ68o2VEeQwQ7kNvwGQnEIo&_nc_oc=AdpipB9Jg-gZJBvhZ9f7dLSvhaYa0pkYcTDdgSwsVkeAQWmX_368nhWWH2ebOngTHcY&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=ubZsEJ_7dpph3XBFhUNdYA&oh=00_Af2-fIrueUXwU9cDEIuRJrS6G8mLvFwn3ER0NAdLhIu9gA&oe=6A114F7E",
+  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEUKTvE9J7O1ukwDTHkVGJwxYYtbwMELFwCM0AXetveJkzC4UY9A6gARnwTEJENVchh1ELNbMFqjbz4b0s4OGn_AAf32oYQLztBJ5EL0QQv07lBJCKKcvxm6pU_aiNjURJkVY--xA=s680-w680-h510"
 ];
 
 const REELS = [
@@ -88,6 +89,13 @@ export default function App() {
 
   const rotateCadillac = useTransform(scrollYProgress, [0, 0.2], [0, 15]);
   const driftText = useTransform(scrollYProgress, [0, 0.5], [0, -500]);
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement;
+    if (!target.src.includes('picsum.photos')) {
+      target.src = `https://picsum.photos/seed/${Math.random()}/800/600?grayscale`;
+    }
+  };
 
   return (
     <div ref={containerRef} className="min-h-screen bg-lotos-bg font-sans text-lotos-black overflow-x-hidden flex flex-col selection:bg-lotos-red selection:text-white">
@@ -123,15 +131,19 @@ export default function App() {
 
       {/* Ticker Top */}
       <div className="bg-black text-white py-4 overflow-hidden border-b-4 border-black relative">
-        <div className="flex gap-10 animate-ticker grayscale hover:grayscale-0 transition-all cursor-default whitespace-nowrap px-4 font-black uppercase text-xl md:text-3xl tracking-tighter italic">
-          <span>🍔 NAJLEPSZE BURGERY NA TRASIE</span>
-          <span className="text-lotos-red underline decoration-white">🚗 KLIMAT USA</span>
-          <span>🎸 MUZYKA I SMAK</span>
-          <span className="text-lotos-red">📍 MOP WORÓW, GRÓJEC</span>
-          <span>🥩 STEKI Z GRILLA</span>
-          <span className="text-lotos-red">☕ KAWA DLA KIEROWCÓW</span>
-          <span>🍔 NOWY CADILLAC BURGER</span>
-          <span className="text-lotos-red">🛣️ TRANZYT S7</span>
+        <div className="flex gap-10 animate-ticker grayscale hover:grayscale-0 transition-all cursor-default whitespace-nowrap px-4 font-black uppercase text-xl md:text-3xl tracking-tighter italic w-max">
+          {[1, 2].map((group) => (
+            <React.Fragment key={group}>
+              <span>🍔 NAJLEPSZE BURGERY NA TRASIE</span>
+              <span className="text-lotos-red underline decoration-white">🚗 KLIMAT USA</span>
+              <span>🎸 MUZYKA I SMAK</span>
+              <span className="text-lotos-red">📍 MOP WORÓW, GRÓJEC</span>
+              <span>🥩 STEKI Z GRILLA</span>
+              <span className="text-lotos-red">☕ KAWA DLA KIEROWCÓW</span>
+              <span>🍔 NOWY CADILLAC BURGER</span>
+              <span className="text-lotos-red">🛣️ TRANZYT S7</span>
+            </React.Fragment>
+          ))}
         </div>
       </div>
 
@@ -150,6 +162,8 @@ export default function App() {
             <img 
               src={IMAGES[0]} 
               alt="Cadillac Wall" 
+              referrerPolicy="no-referrer"
+              onError={handleImageError}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-lotos-red/20 mix-blend-overlay group-hover:bg-transparent transition-colors" />
@@ -207,7 +221,7 @@ export default function App() {
                </div>
             </div>
             <div className="relative border-b-4 border-black overflow-hidden group">
-               <img src={IMAGES[1]} alt="Interior" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" />
+               <img src={IMAGES[1]} referrerPolicy="no-referrer" onError={handleImageError} alt="Interior" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-lotos-red/10 pointer-events-none" />
             </div>
           </div>
@@ -296,7 +310,7 @@ export default function App() {
               className="relative"
             >
               <div className="aspect-video bg-lotos-red brutal-border brutal-shadow relative overflow-hidden">
-                <img src={IMAGES[2]} alt="Food Process" className="w-full h-full object-cover mix-blend-multiply opacity-80" />
+                <img src={IMAGES[2]} alt="Food Process" referrerPolicy="no-referrer" onError={handleImageError} className="w-full h-full object-cover mix-blend-multiply opacity-80" />
                 <div className="absolute inset-0 flex items-center justify-center">
                    <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center animate-pulse">
                      <Flame size={48} className="text-lotos-red" />
@@ -410,27 +424,26 @@ export default function App() {
            </div>
            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
              {REELS.map((url, i) => (
-               <motion.a 
+               <motion.div 
                  key={i} 
-                 href={url} 
-                 target="_blank" 
-                 rel="no-referrer" 
-                 className="group relative block aspect-[9/16] brutal-border brutal-shadow-sm hover:brutal-shadow transition-all hover:translate-y-[-8px] cursor-pointer overflow-hidden"
+                 className="relative aspect-[9/16] brutal-border brutal-shadow-sm overflow-hidden bg-black"
                  initial={{ y: 50, opacity: 0 }}
                  whileInView={{ y: 0, opacity: 1 }}
                  viewport={{ once: true, amount: 0.1 }}
                  transition={{ delay: i * 0.15 }}
                >
-                 <img src={IMAGES[(i + 3) % IMAGES.length]} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Reel Thumbnail" />
-                 <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" />
-                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-lotos-red brutal-border scale-75 group-hover:scale-100 transition-transform">
-                       <Facebook size={40} className="fill-current" />
-                    </div>
-                 </div>
-                 <div className="absolute top-6 left-6 bg-lotos-red text-white px-4 py-1 font-black text-sm uppercase italic brutal-border">REEL {i+1}</div>
-                 <div className="absolute bottom-0 left-0 right-0 bg-black text-white p-6 font-black uppercase text-center text-xl italic group-hover:bg-lotos-red transform translate-y-2 group-hover:translate-y-0 transition-all">OGLĄDAJ</div>
-               </motion.a>
+                 <iframe 
+                   src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=0&t=0`} 
+                   width="100%" 
+                   height="100%" 
+                   style={{ border: 'none', overflow: 'hidden' }} 
+                   scrolling="no" 
+                   frameBorder="0" 
+                   allowFullScreen={true} 
+                   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                   className="absolute inset-0"
+                 ></iframe>
+               </motion.div>
              ))}
            </div>
          </div>
@@ -457,6 +470,8 @@ export default function App() {
                 <img 
                   src={img} 
                   alt={`Gallery ${i}`} 
+                  referrerPolicy="no-referrer"
+                  onError={handleImageError}
                   className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
                 <div className="mt-4 flex justify-between items-center text-black font-black uppercase text-xs italic">
