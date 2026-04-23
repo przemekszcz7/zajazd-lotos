@@ -547,9 +547,9 @@ export default function App() {
             <p className="font-bold text-xs text-gray-500 uppercase tracking-widest">MOP Worów, Grójec 05-600 | S7 | American Diner Experience</p>
           </div>
           <div className="flex gap-4">
-            <Facebook className="hover:text-lotos-red cursor-pointer transition-colors" size={32} />
-            <MessageSquare className="hover:text-lotos-red cursor-pointer transition-colors" size={32} />
-            <ExternalLink className="hover:text-lotos-red cursor-pointer transition-colors" size={32} />
+            <a href="https://www.facebook.com/ZajazdLotos" target="_blank" rel="no-referrer">
+              <Facebook className="hover:text-lotos-red cursor-pointer transition-colors" size={32} />
+            </a>
           </div>
         </div>
         <div className="text-center mt-12 pt-8 border-t border-white/5">
