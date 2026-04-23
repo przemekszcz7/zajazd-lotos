@@ -78,10 +78,7 @@ const FAQS = [
 
 export default function App() {
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
+  const { scrollYProgress } = useScroll();
 
   const scaleProgress = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -148,7 +145,7 @@ export default function App() {
 
           <motion.div 
             style={{ rotate: rotateCadillac }}
-            className="relative aspect-square md:aspect-[3/4] flex-1 rounded-none overflow-hidden brutal-border brutal-shadow mb-8 group"
+            className="relative aspect-[3/4] flex-1 rounded-none overflow-hidden brutal-border brutal-shadow mb-8 group"
           >
             <img 
               src={IMAGES[0]} 
@@ -165,6 +162,7 @@ export default function App() {
             <motion.h2 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
               className="text-5xl md:text-6xl font-black uppercase mb-4 text-lotos-red leading-[0.8] italic tracking-tighter"
             >
               Prawdziwa <br /> Legenda
@@ -266,6 +264,7 @@ export default function App() {
                       className="border-l-4 border-lotos-red pl-6 py-2"
                       initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, amount: 0.1 }}
                     >
                       <p className="text-xl italic font-bold leading-none mb-2">"{review.text}"</p>
                       <p className="text-[10px] uppercase font-black text-gray-400">★ {review.name}</p>
@@ -292,6 +291,7 @@ export default function App() {
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ type: "spring" }}
               className="relative"
             >
@@ -322,6 +322,7 @@ export default function App() {
                     className="flex gap-6 items-start"
                     initial={{ x: 50, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
+                    viewport={{ once: true, amount: 0.1 }}
                     transition={{ delay: i * 0.1 }}
                   >
                     <div className="w-16 h-16 bg-black text-white shrink-0 flex items-center justify-center brutal-border brutal-shadow-sm">
@@ -346,6 +347,7 @@ export default function App() {
               <motion.h2 
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="text-7xl md:text-9xl font-black uppercase italic tracking-tighter leading-none mb-4"
               >
                 The Full <br /> <span className="text-black">Lotos Menu</span>
@@ -416,6 +418,7 @@ export default function App() {
                  className="group relative block aspect-[9/16] brutal-border brutal-shadow-sm hover:brutal-shadow transition-all hover:translate-y-[-8px] cursor-pointer overflow-hidden"
                  initial={{ y: 50, opacity: 0 }}
                  whileInView={{ y: 0, opacity: 1 }}
+                 viewport={{ once: true, amount: 0.1 }}
                  transition={{ delay: i * 0.15 }}
                >
                  <img src={IMAGES[(i + 3) % IMAGES.length]} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Reel Thumbnail" />
@@ -447,6 +450,7 @@ export default function App() {
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
                 whileHover={{ rotate: i % 2 === 0 ? 2 : -2 }}
                 className="relative break-inside-avoid rounded-none bg-white p-4 brutal-border brutal-shadow-sm group cursor-zoom-in"
               >
@@ -476,6 +480,7 @@ export default function App() {
                 className="brutal-border p-8 bg-lotos-bg group hover:bg-white transition-colors cursor-help"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 <h4 className="text-2xl font-black uppercase italic mb-4 flex items-center gap-4">
                    <CircleHelp className="text-lotos-red" />
@@ -499,6 +504,7 @@ export default function App() {
           <motion.div
              initial={{ scale: 0.5, opacity: 0 }}
              whileInView={{ scale: 1, opacity: 1 }}
+             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className="text-7xl md:text-9xl font-black uppercase italic tracking-tighter leading-none mb-8 text-white">
                Wpadaj <br /><span className="text-black">do nas!</span>
