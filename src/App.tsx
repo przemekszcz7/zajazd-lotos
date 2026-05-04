@@ -23,6 +23,16 @@ import {
 } from 'lucide-react';
 import React, { useRef } from 'react';
 
+// New local images imports
+import imgHeroInterior from './assets/images/regenerated_image_1777899886106.jpg';
+import imgHeroCadillac from './assets/images/regenerated_image_1777899886645.jpg';
+import imgGallery2 from './assets/images/regenerated_image_1777899888710.jpg';
+import imgGallery3 from './assets/images/regenerated_image_1777899887273.jpg';
+import imgGallery4 from './assets/images/regenerated_image_1777899888305.jpg';
+import imgGallery5 from './assets/images/regenerated_image_1777899889754.jpg';
+import imgGallery6 from './assets/images/regenerated_image_1777899887819.jpg';
+import imgGallery7 from './assets/images/regenerated_image_1777899889063.jpg';
+
 const REVIEWS = [
   { id: 1, name: "Katarzyna", text: "Świetny klimat! Cadillac w ścianie robi wrażenie, a burger był obłędny. Na pewno wrócę!", rating: 5 },
   { id: 2, name: "Marek", text: "Pyszne jedzenie, bardzo miła obsługa. Idealne miejsce na przystanek w trasie.", rating: 5 },
@@ -55,13 +65,13 @@ const MENU_ITEMS = [
 // Uwaga: Linki scontent z Facebooka są tymczasowe i mogą wygasnąć.
 // Zaleca się wgranie własnych zdjęć do stałego hostingu lub bezpośrednio do projektu.
 const IMAGES = [
-  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG5Ri_ENQR9gBD6rSjelXVzE2RUWlEua3SzKKYtOEArJA-GWNvgoLRCX7NRVseeG5mD9-pQqIZyj8a3D55lNohfnSMnwwch9jG0DkXCERPg-Z4DOVCIg_-rB__2C5PtZ7slK-29VA=s680-w680-h510",
-  "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/556892494_1802360900475991_647774063571387651_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=9XM4Bxu-ZHEQ7kNvwFwIrOb&_nc_oc=Adqd8Jd4xOo3mRsTmuX74_280WFABzIc7Emql4QUu-8ubCAkJv5hrMQXFY-fUvljbbc&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=sRBcM-v8sjcD0Vg-E4pIgg&oh=00_Af1HSuZETIDn2xStrbnmr5M0Db7n6r4Of3o-K-ZUslR5gw&oe=69EFB1B5",
-  "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/483916548_1647152282663521_2453557793454855479_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=H2UGvtdtbMYQ7kNvwE6q-AP&_nc_oc=Adolk-qXtv2zzqntyDwurOzcdSqF_BA_ZvO0FOcqd7W8COLjy615LTPkL3iIV5aGLX0&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=lp7LLf4Vzq3WQ-6qUDyxAQ&oh=00_Af0EV2xkpZPdO9eekrUSYpESaIbTrTcq_PX85BSCQK0qUw&oe=69EFBDFA",
-  "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/483751292_1647151985996884_2391905775776737894_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=xkKpPOXxjKEQ7kNvwGawthp&_nc_oc=AdoTN40uLvSMz3frJNi-9dpkUlL-3QdYEn2fuRuOcCDauneY6e3lURc6EmXDR6VU5DM&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=SQF5DinD7uaTboHVhMD_Kg&oh=00_Af35dc0u_tAQw38n_H7fDbEnuhpLHQrIJIP-swkrN1lFlQ&oe=69EF943A",
-  "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/476453867_1624451761600240_316169056175233821_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=b895b5&_nc_ohc=Ecthctu0v1gQ7kNvwGO3qna&_nc_oc=Adpi5wxBkEJ9jK7hBj2FQvhkLYBEbBvS-1_KYGJ6bzdKjz7PTiUStkafaX1Uq_WLeaI&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=Hgo5Vr0JFoO7F2aUA2WECw&oh=00_Af01mHnIb-gUK5rgp2az5IxreyPhPtYTiFDvXG0gO4UaVg&oe=69EF8EC5",
-  "https://scontent-waw2-2.xx.fbcdn.net/v/t1.6435-9/186515277_1777677545744347_6852381302438875751_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=bQ68o2VEeQwQ7kNvwGQnEIo&_nc_oc=AdpipB9Jg-gZJBvhZ9f7dLSvhaYa0pkYcTDdgSwsVkeAQWmX_368nhWWH2ebOngTHcY&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=ubZsEJ_7dpph3XBFhUNdYA&oh=00_Af2-fIrueUXwU9cDEIuRJrS6G8mLvFwn3ER0NAdLhIu9gA&oe=6A114F7E",
-  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEUKTvE9J7O1ukwDTHkVGJwxYYtbwMELFwCM0AXetveJkzC4UY9A6gARnwTEJENVchh1ELNbMFqjbz4b0s4OGn_AAf32oYQLztBJ5EL0QQv07lBJCKKcvxm6pU_aiNjURJkVY--xA=s680-w680-h510"
+  imgHeroCadillac, // Item 1
+  imgGallery2,     // Item 2
+  imgGallery3,     // Item 3
+  imgGallery4,     // Item 4
+  imgGallery7,     // Item 5 (889063)
+  imgGallery6,     // Item 6
+  imgGallery5      // Item 7 (889754)
 ];
 
 const REELS = [
@@ -160,7 +170,7 @@ export default function App() {
             className="relative aspect-[3/4] flex-1 rounded-none overflow-hidden brutal-border brutal-shadow mb-8 group"
           >
             <img 
-              src={IMAGES[0]} 
+              src={imgHeroCadillac} 
               alt="Cadillac Wall" 
               referrerPolicy="no-referrer"
               onError={handleImageError}
@@ -221,7 +231,7 @@ export default function App() {
                </div>
             </div>
             <div className="relative border-b-4 border-black overflow-hidden group">
-               <img src={IMAGES[1]} referrerPolicy="no-referrer" onError={handleImageError} alt="Interior" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" />
+               <img src={imgHeroInterior} referrerPolicy="no-referrer" onError={handleImageError} alt="Interior" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-lotos-red/10 pointer-events-none" />
             </div>
           </div>
