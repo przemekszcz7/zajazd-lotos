@@ -26,7 +26,7 @@ import React, { useRef } from 'react';
 // New local images imports
 import imgHeroInterior from './assets/images/regenerated_image_1777899886106.jpg';
 import imgGallery2 from './assets/images/regenerated_image_1777899888710.jpg';
-import imgGallery3 from './assets/images/regenerated_image_1777900690217.png';
+import imgGallery3 from './assets/images/regenerated_image_1777899887273.jpg';
 import imgGallery4 from './assets/images/regenerated_image_1777899888305.jpg';
 import imgGallery5 from './assets/images/regenerated_image_1777899889754.jpg';
 import imgGallery6 from './assets/images/regenerated_image_1777899887819.jpg';
