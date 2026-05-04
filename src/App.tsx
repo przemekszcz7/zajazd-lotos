@@ -24,14 +24,14 @@ import {
 import React, { useRef } from 'react';
 
 // Image URLs for Diner theme
-const imgHeroInterior = 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=1200';
+const imgHeroInterior = 'https://iili.io/BQ5WG4t.md.jpg';
 const imgHeroCadillac = 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAG5Ri_ENQR9gBD6rSjelXVzE2RUWlEua3SzKKYtOEArJA-GWNvgoLRCX7NRVseeG5mD9-pQqIZyj8a3D55lNohfnSMnwwch9jG0DkXCERPg-Z4DOVCIg_-rB__2C5PtZ7slK-29VA=s1200';
-const imgGallery2 = 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&q=80&w=800';
-const imgGallery3 = 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800';
-const imgGallery4 = 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&q=80&w=800';
-const imgGallery5 = 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&q=80&w=800';
-const imgGallery6 = 'https://images.unsplash.com/photo-1529692236671-f1f6e9460272?auto=format&fit=crop&q=80&w=800';
-const imgGallery7 = 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&q=80&w=800';
+const imgGallery2 = 'https://iili.io/BQ5W5va.md.jpg';
+const imgGallery3 = 'https://iili.io/BQ5WzCB.md.jpg';
+const imgGallery4 = 'https://iili.io/BQ5WhyG.md.jpg';
+const imgGallery5 = 'https://iili.io/BQ5WIEP.md.jpg';
+const imgGallery6 = 'https://iili.io/BQ5WXvs.md.jpg';
+const imgGallery7 = 'https://iili.io/BQ5Wwuf.md.jpg';
 
 const REVIEWS = [
   { id: 1, name: "Katarzyna", text: "Świetny klimat! Cadillac w ścianie robi wrażenie, a burger był obłędny. Na pewno wrócę!", rating: 5 },
@@ -319,7 +319,7 @@ export default function App() {
               className="relative"
             >
               <div className="aspect-video bg-lotos-red brutal-border brutal-shadow relative overflow-hidden">
-                <img src={IMAGES[2]} alt="Food Process" referrerPolicy="no-referrer" onError={handleImageError} className="w-full h-full object-cover mix-blend-multiply opacity-80" />
+                <img src={IMAGES[2]} alt="Food Process" onError={handleImageError} className="w-full h-full object-cover mix-blend-multiply opacity-80" />
                 <div className="absolute inset-0 flex items-center justify-center">
                    <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center animate-pulse">
                      <Flame size={48} className="text-lotos-red" />
