@@ -23,15 +23,15 @@ import {
 } from 'lucide-react';
 import React, { useRef } from 'react';
 
-// New local images imports
-import imgHeroInterior from './assets/images/regenerated_image_1777899886106.jpg';
-import imgHeroCadillac from './assets/images/regenerated_image_1777899886645.jpg';
-import imgGallery2 from './assets/images/regenerated_image_1777899888710.jpg';
-import imgGallery3 from './assets/images/regenerated_image_1777900690217.png';
-import imgGallery4 from './assets/images/regenerated_image_1777899888305.jpg';
-import imgGallery5 from './assets/images/regenerated_image_1777899889754.jpg';
-import imgGallery6 from './assets/images/regenerated_image_1777899887819.jpg';
-import imgGallery7 from './assets/images/regenerated_image_1777899889063.jpg';
+// Image URLs for Diner theme
+const imgHeroInterior = 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=1200';
+const imgHeroCadillac = 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAG5Ri_ENQR9gBD6rSjelXVzE2RUWlEua3SzKKYtOEArJA-GWNvgoLRCX7NRVseeG5mD9-pQqIZyj8a3D55lNohfnSMnwwch9jG0DkXCERPg-Z4DOVCIg_-rB__2C5PtZ7slK-29VA=s1200';
+const imgGallery2 = 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&q=80&w=800';
+const imgGallery3 = 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800';
+const imgGallery4 = 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&q=80&w=800';
+const imgGallery5 = 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&q=80&w=800';
+const imgGallery6 = 'https://images.unsplash.com/photo-1529692236671-f1f6e9460272?auto=format&fit=crop&q=80&w=800';
+const imgGallery7 = 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&q=80&w=800';
 
 const REVIEWS = [
   { id: 1, name: "Katarzyna", text: "Świetny klimat! Cadillac w ścianie robi wrażenie, a burger był obłędny. Na pewno wrócę!", rating: 5 },
