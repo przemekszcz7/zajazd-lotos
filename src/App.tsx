@@ -65,7 +65,7 @@ const MENU_ITEMS = [
 // Uwaga: Linki scontent z Facebooka są tymczasowe i mogą wygasnąć.
 // Zaleca się wgranie własnych zdjęć do stałego hostingu lub bezpośrednio do projektu.
 const IMAGES = [
-  imgHeroCadillac, // Item 1
+  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG5Ri_ENQR9gBD6rSjelXVzE2RUWlEua3SzKKYtOEArJA-GWNvgoLRCX7NRVseeG5mD9-pQqIZyj8a3D55lNohfnSMnwwch9jG0DkXCERPg-Z4DOVCIg_-rB__2C5PtZ7slK-29VA=s680-w680-h510", // Item 1
   imgGallery2,     // Item 2
   imgGallery3,     // Item 3
   imgGallery4,     // Item 4
@@ -170,7 +170,7 @@ export default function App() {
             className="relative aspect-[3/4] flex-1 rounded-none overflow-hidden brutal-border brutal-shadow mb-8 group"
           >
             <img 
-              src={imgHeroCadillac} 
+              src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAG5Ri_ENQR9gBD6rSjelXVzE2RUWlEua3SzKKYtOEArJA-GWNvgoLRCX7NRVseeG5mD9-pQqIZyj8a3D55lNohfnSMnwwch9jG0DkXCERPg-Z4DOVCIg_-rB__2C5PtZ7slK-29VA=s680-w680-h510" 
               alt="Cadillac Wall" 
               referrerPolicy="no-referrer"
               onError={handleImageError}
