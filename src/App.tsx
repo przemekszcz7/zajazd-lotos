@@ -25,8 +25,9 @@ import React, { useRef } from 'react';
 
 // New local images imports
 import imgHeroInterior from './assets/images/regenerated_image_1777899886106.jpg';
+import imgHeroCadillac from './assets/images/regenerated_image_1777899886645.jpg';
 import imgGallery2 from './assets/images/regenerated_image_1777899888710.jpg';
-import imgGallery3 from './assets/images/regenerated_image_1777899887273.jpg';
+import imgGallery3 from './assets/images/regenerated_image_1777900690217.png';
 import imgGallery4 from './assets/images/regenerated_image_1777899888305.jpg';
 import imgGallery5 from './assets/images/regenerated_image_1777899889754.jpg';
 import imgGallery6 from './assets/images/regenerated_image_1777899887819.jpg';
@@ -64,7 +65,7 @@ const MENU_ITEMS = [
 // Uwaga: Linki scontent z Facebooka są tymczasowe i mogą wygasnąć.
 // Zaleca się wgranie własnych zdjęć do stałego hostingu lub bezpośrednio do projektu.
 const IMAGES = [
-  "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG5Ri_ENQR9gBD6rSjelXVzE2RUWlEua3SzKKYtOEArJA-GWNvgoLRCX7NRVseeG5mD9-pQqIZyj8a3D55lNohfnSMnwwch9jG0DkXCERPg-Z4DOVCIg_-rB__2C5PtZ7slK-29VA=s680-w680-h510", // Item 1 (Cadillac)
+  imgHeroCadillac, // Item 1 (Cadillac)
   imgGallery2,     // Item 2
   imgGallery3,     // Item 3
   imgGallery4,     // Item 4
@@ -169,9 +170,8 @@ export default function App() {
             className="relative aspect-[3/4] flex-1 rounded-none overflow-hidden brutal-border brutal-shadow mb-8 group"
           >
             <img 
-              src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAG5Ri_ENQR9gBD6rSjelXVzE2RUWlEua3SzKKYtOEArJA-GWNvgoLRCX7NRVseeG5mD9-pQqIZyj8a3D55lNohfnSMnwwch9jG0DkXCERPg-Z4DOVCIg_-rB__2C5PtZ7slK-29VA=s680-w680-h510" 
+              src={imgHeroCadillac} 
               alt="Cadillac Wall" 
-              referrerPolicy="no-referrer"
               onError={handleImageError}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
@@ -230,7 +230,7 @@ export default function App() {
                </div>
             </div>
             <div className="relative border-b-4 border-black overflow-hidden group">
-               <img src={imgHeroInterior} referrerPolicy="no-referrer" onError={handleImageError} alt="Interior" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" />
+               <img src={imgHeroInterior} onError={handleImageError} alt="Interior" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-lotos-red/10 pointer-events-none" />
             </div>
           </div>
@@ -479,7 +479,6 @@ export default function App() {
                 <img 
                   src={img} 
                   alt={`Gallery ${i}`} 
-                  referrerPolicy="no-referrer"
                   onError={handleImageError}
                   className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
